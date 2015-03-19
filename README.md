@@ -27,7 +27,4 @@ assert card.is_mod10_valid
 
 # The card is a visa
 assert card.brand == 'visa'
-
-# The card is a known test card
-assert card.is_test
 ```

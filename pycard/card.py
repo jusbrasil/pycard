@@ -23,28 +23,6 @@ class Card(object):
         BRAND_DISCOVER: re.compile(r'^(6011|65\d{2})\d{12}$'),
     }
 
-    # Common test credit cards
-    TESTS = (
-        '4444333322221111',
-        '378282246310005',
-        '371449635398431',
-        '378734493671000',
-        '30569309025904',
-        '38520000023237',
-        '6011111111111117',
-        '6011000990139424',
-        '555555555554444',
-        '5105105105105100',
-        '4111111111111111',
-        '4012888888881881',
-        '4222222222222',
-    )
-
-    # Stripe test credit cards
-    TESTS += (
-        '4242424242424242',
-    )
-
     def __init__(self, number, month, year, cvc, holder=None):
         """
         Attaches the provided card data and holder to the card after removing
@@ -96,13 +74,6 @@ class Card(object):
 
         # Default to unknown brand
         return self.BRAND_UNKNOWN
-
-    @property
-    def is_test(self):
-        """
-        Returns whether or not the card's number is a known test number.
-        """
-        return self.number in self.TESTS
 
     @property
     def is_expired(self):
